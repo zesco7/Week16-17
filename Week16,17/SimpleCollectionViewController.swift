@@ -44,8 +44,8 @@ class SimpleCollectionViewController: UICollectionViewController {
         
         //MARK: - 3. 셀컨텐츠 설정: 재사용에 사용할 셀이 데이터를 가질 수 있도록 하고 셀속성도 적용한다.
         CellRegistration = UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
-            //var content = cell.defaultContentConfiguration()
-            var content = UIListContentConfiguration.valueCell()
+            //var content = cell.defaultContentConfiguration() //기본설정
+            var content = UIListContentConfiguration.valueCell() //세부설정
             
             content.text = itemIdentifier.name //indexPath로 전달된 내용이기 때문에 indexPath로 구분하지 않아도 됨
             content.image = itemIdentifier.age < 8 ? UIImage(systemName: "person.fill") : UIImage(systemName: "star")
