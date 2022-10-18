@@ -30,7 +30,7 @@ class SimpleCollectionViewController: UICollectionViewController {
     ]
 
     //CellRegistration타입만 선언해둠(셀 등록할때 register 코드와 유사한 역할)
-    var CellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, User>!
+    var CellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, User>! //셀에 들어갈 데이터 타입을 제네릭에 넣기
     
     override func viewDidLoad() {
         super.viewDidLoad()

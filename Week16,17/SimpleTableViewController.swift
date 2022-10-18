@@ -23,7 +23,7 @@ class SimpleTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        var content = cell.defaultContentConfiguration() //셀 재사용대신 사용
+        var content = cell.defaultContentConfiguration() //셀 재사용대신 사용(셀재사용 속성가지고 있어서 따로 dequereusable안해줘도 됨)
         content.text = list[indexPath.row] //titleLabel
         content.secondaryText = "안녕하세요" //detailTextLabel
         
