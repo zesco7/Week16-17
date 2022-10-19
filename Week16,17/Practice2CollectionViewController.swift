@@ -4,7 +4,7 @@
 //
 //  Created by Mac Pro 15 on 2022/10/18.
 //
-
+/*
 import UIKit
 
 private let reuseIdentifier = "Cell"
@@ -48,3 +48,4 @@ class Practice2CollectionViewController: UICollectionViewController {
         return cell
     }
 }
+*/

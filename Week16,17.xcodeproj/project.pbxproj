@@ -16,6 +16,7 @@
 		9885640828FE2739008DDEF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9885640628FE2739008DDEF6 /* LaunchScreen.storyboard */; };
 		9885641028FE324A008DDEF6 /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9885640F28FE324A008DDEF6 /* SimpleTableViewController.swift */; };
 		9885641228FE3909008DDEF6 /* SimpleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9885641128FE3909008DDEF6 /* SimpleCollectionViewController.swift */; };
+		98C069A228FF90880092337E /* DiffableCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C069A128FF90880092337E /* DiffableCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9885640928FE2739008DDEF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9885640F28FE324A008DDEF6 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 		9885641128FE3909008DDEF6 /* SimpleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionViewController.swift; sourceTree = "<group>"; };
+		98C069A128FF90880092337E /* DiffableCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				9885641128FE3909008DDEF6 /* SimpleCollectionViewController.swift */,
 				9846D19528FEBD0D006195FD /* PracticeCollectionViewController.swift */,
 				9846D19728FECF22006195FD /* Practice2CollectionViewController.swift */,
+				98C069A128FF90880092337E /* DiffableCollectionViewController.swift */,
 			);
 			path = "Week16,17";
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98C069A228FF90880092337E /* DiffableCollectionViewController.swift in Sources */,
 				9846D19828FECF22006195FD /* Practice2CollectionViewController.swift in Sources */,
 				9885641228FE3909008DDEF6 /* SimpleCollectionViewController.swift in Sources */,
 				9885641028FE324A008DDEF6 /* SimpleTableViewController.swift in Sources */,
