@@ -9,8 +9,8 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-struct User: Hashable {
-    let id = UUID().uuidString //identifier 에러시 구분용 고유값 생성(그때그때 다른값
+struct User: Hashable { //diffable data source사용하려면 항상 Hashable 프로토콜 채택해야함
+    let id = UUID().uuidString //구조체에 Hashable프로토콜 채택하고 UUID사용하면 중복데이터 사용 가능(identifier 에러시 매번 다른 고유값 생성해서 해결)
     let name: String
     let age: Int
 }
@@ -25,7 +25,7 @@ class SimpleCollectionViewController: UICollectionViewController {
 
     var list = [
     User(name: "뽀로로", age: 3),
-    User(name: "에디", age: 13),
+    User(name: "뽀로로", age: 3),
     User(name: "해리포터", age: 33),
     User(name: "도라에몽", age: 5)
     ]
@@ -63,6 +63,7 @@ class SimpleCollectionViewController: UICollectionViewController {
             backgroundConfig.strokeColor = .systemPink
             cell.backgroundConfiguration = backgroundConfig
         }
+        
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: self.CellRegistration, for: indexPath, item: itemIdentifier)
             
