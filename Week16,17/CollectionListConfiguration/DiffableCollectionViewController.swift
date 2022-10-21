@@ -56,10 +56,6 @@ extension DiffableCollectionViewController: UISearchBarDelegate {
         snapshot.appendItems([searchBar.text!]) //하나하나 추가할때마다 달라진 버젼으로 화면갱신
         dataSource.apply(snapshot, animatingDifferences: true)
     }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
 }
 
 extension DiffableCollectionViewController {

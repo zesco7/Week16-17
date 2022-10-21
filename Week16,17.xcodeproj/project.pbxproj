@@ -24,7 +24,6 @@
 		98FCD8B52900EE0400502E63 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCD8B42900EE0400502E63 /* APIService.swift */; };
 		98FCD8B72900EF8800502E63 /* SearchPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCD8B62900EF8800502E63 /* SearchPhoto.swift */; };
 		98FCD8BA2900F12500502E63 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 98FCD8B92900F12500502E63 /* Alamofire */; };
-		98FCD8BD2900F15000502E63 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 98FCD8BC2900F15000502E63 /* Kingfisher */; };
 		98FCD8BF2900F4AF00502E63 /* DiffableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCD8BE2900F4AF00502E63 /* DiffableViewModel.swift */; };
 		98FCD8C329015AE900502E63 /* MVVMDiffableCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCD8C229015AE900502E63 /* MVVMDiffableCollectionViewController.swift */; };
 /* End PBXBuildFile section */
@@ -57,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98FCD8BD2900F15000502E63 /* Kingfisher in Frameworks */,
 				98FCD8BA2900F12500502E63 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,8 +66,8 @@
 		988563EF28FE2733008DDEF6 = {
 			isa = PBXGroup;
 			children = (
-				988563FA28FE2734008DDEF6 /* Week16,17 */,
 				988563F928FE2734008DDEF6 /* Products */,
+				988563FA28FE2734008DDEF6 /* Week16,17 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +82,9 @@
 		988563FA28FE2734008DDEF6 /* Week16,17 */ = {
 			isa = PBXGroup;
 			children = (
+				98C4963A2902C9FB003EDB6D /* CollectionListConfiguration */,
+				98C496392902C9CA003EDB6D /* API */,
+				98C496382902C9B8003EDB6D /* Codable */,
 				98FCD8C42901755E00502E63 /* MVVM */,
 				98FCD8A72900CD8D00502E63 /* MVVMSample */,
 				988563FB28FE2734008DDEF6 /* AppDelegate.swift */,
@@ -92,16 +93,36 @@
 				9885640428FE2739008DDEF6 /* Assets.xcassets */,
 				9885640628FE2739008DDEF6 /* LaunchScreen.storyboard */,
 				9885640928FE2739008DDEF6 /* Info.plist */,
+			);
+			path = "Week16,17";
+			sourceTree = "<group>";
+		};
+		98C496382902C9B8003EDB6D /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				98FCD8B62900EF8800502E63 /* SearchPhoto.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		98C496392902C9CA003EDB6D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				98FCD8A52900C94D00502E63 /* APIKey.swift */,
+				98FCD8B42900EE0400502E63 /* APIService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		98C4963A2902C9FB003EDB6D /* CollectionListConfiguration */ = {
+			isa = PBXGroup;
+			children = (
 				9885640F28FE324A008DDEF6 /* SimpleTableViewController.swift */,
 				9885641128FE3909008DDEF6 /* SimpleCollectionViewController.swift */,
 				9846D19528FEBD0D006195FD /* PracticeCollectionViewController.swift */,
 				98C069A128FF90880092337E /* DiffableCollectionViewController.swift */,
-				98FCD8BE2900F4AF00502E63 /* DiffableViewModel.swift */,
-				98FCD8A52900C94D00502E63 /* APIKey.swift */,
-				98FCD8B42900EE0400502E63 /* APIService.swift */,
-				98FCD8B62900EF8800502E63 /* SearchPhoto.swift */,
 			);
-			path = "Week16,17";
+			path = CollectionListConfiguration;
 			sourceTree = "<group>";
 		};
 		98FCD8A72900CD8D00502E63 /* MVVMSample */ = {
@@ -119,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				98FCD8C229015AE900502E63 /* MVVMDiffableCollectionViewController.swift */,
+				98FCD8BE2900F4AF00502E63 /* DiffableViewModel.swift */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -141,7 +163,6 @@
 			name = "Week16,17";
 			packageProductDependencies = (
 				98FCD8B92900F12500502E63 /* Alamofire */,
-				98FCD8BC2900F15000502E63 /* Kingfisher */,
 			);
 			productName = "Week16,17";
 			productReference = 988563F828FE2734008DDEF6 /* Week16,17.app */;
@@ -173,7 +194,6 @@
 			mainGroup = 988563EF28FE2733008DDEF6;
 			packageReferences = (
 				98FCD8B82900F12400502E63 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				98FCD8BB2900F15000502E63 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 988563F928FE2734008DDEF6 /* Products */;
 			projectDirPath = "";
@@ -444,14 +464,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		98FCD8BB2900F15000502E63 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -459,11 +471,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 98FCD8B82900F12400502E63 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		98FCD8BC2900F15000502E63 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 98FCD8BB2900F15000502E63 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
