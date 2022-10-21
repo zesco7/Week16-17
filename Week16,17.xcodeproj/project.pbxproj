@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9846D19628FEBD0D006195FD /* PracticeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9846D19528FEBD0D006195FD /* PracticeCollectionViewController.swift */; };
-		9846D19828FECF22006195FD /* Practice2CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9846D19728FECF22006195FD /* Practice2CollectionViewController.swift */; };
 		988563FC28FE2734008DDEF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988563FB28FE2734008DDEF6 /* AppDelegate.swift */; };
 		988563FE28FE2734008DDEF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988563FD28FE2734008DDEF6 /* SceneDelegate.swift */; };
 		9885640328FE2734008DDEF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9885640128FE2734008DDEF6 /* Main.storyboard */; };
@@ -32,7 +31,6 @@
 
 /* Begin PBXFileReference section */
 		9846D19528FEBD0D006195FD /* PracticeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCollectionViewController.swift; sourceTree = "<group>"; };
-		9846D19728FECF22006195FD /* Practice2CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practice2CollectionViewController.swift; sourceTree = "<group>"; };
 		988563F828FE2734008DDEF6 /* Week16,17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Week16,17.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		988563FB28FE2734008DDEF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		988563FD28FE2734008DDEF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +84,7 @@
 		988563FA28FE2734008DDEF6 /* Week16,17 */ = {
 			isa = PBXGroup;
 			children = (
+				98FCD8C42901755E00502E63 /* MVVM */,
 				98FCD8A72900CD8D00502E63 /* MVVMSample */,
 				988563FB28FE2734008DDEF6 /* AppDelegate.swift */,
 				988563FD28FE2734008DDEF6 /* SceneDelegate.swift */,
@@ -96,13 +95,11 @@
 				9885640F28FE324A008DDEF6 /* SimpleTableViewController.swift */,
 				9885641128FE3909008DDEF6 /* SimpleCollectionViewController.swift */,
 				9846D19528FEBD0D006195FD /* PracticeCollectionViewController.swift */,
-				9846D19728FECF22006195FD /* Practice2CollectionViewController.swift */,
 				98C069A128FF90880092337E /* DiffableCollectionViewController.swift */,
 				98FCD8BE2900F4AF00502E63 /* DiffableViewModel.swift */,
 				98FCD8A52900C94D00502E63 /* APIKey.swift */,
 				98FCD8B42900EE0400502E63 /* APIService.swift */,
 				98FCD8B62900EF8800502E63 /* SearchPhoto.swift */,
-				98FCD8C229015AE900502E63 /* MVVMDiffableCollectionViewController.swift */,
 			);
 			path = "Week16,17";
 			sourceTree = "<group>";
@@ -116,6 +113,14 @@
 				98FCD8B02900D78200502E63 /* News.swift */,
 			);
 			path = MVVMSample;
+			sourceTree = "<group>";
+		};
+		98FCD8C42901755E00502E63 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				98FCD8C229015AE900502E63 /* MVVMDiffableCollectionViewController.swift */,
+			);
+			path = MVVM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +204,6 @@
 			files = (
 				98FCD8A92900CF8D00502E63 /* CObservable.swift in Sources */,
 				98C069A228FF90880092337E /* DiffableCollectionViewController.swift in Sources */,
-				9846D19828FECF22006195FD /* Practice2CollectionViewController.swift in Sources */,
 				98FCD8C329015AE900502E63 /* MVVMDiffableCollectionViewController.swift in Sources */,
 				98FCD8AB2900D14300502E63 /* NewsViewController.swift in Sources */,
 				98FCD8BF2900F4AF00502E63 /* DiffableViewModel.swift in Sources */,

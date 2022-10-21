@@ -9,11 +9,15 @@
 import Foundation
 
 class CObservable<T> {
+//    private var listener: ((T) -> Void)? = { value in
+//        self.numberTextField.text = value
+//    } //listener에 클로저가 저장된 형태
+    
     private var listener: ((T) -> Void)?
     
     var value: T {
         didSet {
-            listener?(value)
+            listener?(value) //value값이 바뀌면 listener 실행
         }
     }
     
@@ -23,7 +27,6 @@ class CObservable<T> {
     
     func bind(_ closure: @escaping (T) -> Void) {
         closure(value)
-        listener = closure
+        listener = closure //listener에 클로저 저장
     }
-    
 }

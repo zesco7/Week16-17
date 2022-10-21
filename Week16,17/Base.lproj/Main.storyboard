@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NHg-bp-34t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ord-5Y-ksd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -303,9 +303,9 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="JB3-3b-hM1" id="qF8-9e-V1D"/>
-                        <outlet property="loadButton" destination="CDm-lS-NKN" id="6Tu-V0-drK"/>
+                        <outlet property="loadButton" destination="CDm-lS-NKN" id="4b9-pI-AZa"/>
                         <outlet property="numberTextField" destination="p4c-E3-0ZU" id="E84-2N-hnx"/>
-                        <outlet property="resetButton" destination="8RN-P5-dpl" id="DF3-Ed-rL6"/>
+                        <outlet property="resetButton" destination="8RN-P5-dpl" id="T4x-nf-QQ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdu-r2-cel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

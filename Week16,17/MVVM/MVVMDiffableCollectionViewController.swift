@@ -16,7 +16,7 @@ class MVVMDiffableCollectionViewController : UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var viewModel = DiffableViewModel()
-    var list = ["아이폰", "아이패드", "에어팟", "맥북", "애플워치"]
+    //var list = ["아이폰", "아이패드", "에어팟", "맥북", "애플워치"]
     
     //셀재사용(numberOfItemsInSection, CellForItemAt) 대신 사용할 diffable 데이터소스 타입 프로퍼티 생성(섹션인덱스,데이터타입 설정) *indexPath사용하지 않으므로 섹션별 item수는 고려하지않아도됨.(데이터모델로 대신 처리)
     //private var dataSource: UICollectionViewDiffableDataSource<Int, String>!
@@ -28,13 +28,15 @@ class MVVMDiffableCollectionViewController : UIViewController {
         
         collectionView.collectionViewLayout = createLayout() //레이아웃 반환 메서드 호출
         configureDataSource()
+        collectionView.delegate = self //데이터소스만 메서드로 만들었으므로 delegate는 따로 등록
+        searchBar.delegate = self
+        
         viewModel.photoList.bind { photo in
-            var snapshot = NSDiffableDataSourceSnapshot<Int, SearchResult>!
+            var snapshot = NSDiffableDataSourceSnapshot<Int, SearchResult>()
+            snapshot.appendSections([0])
             snapshot.appendItems(photo.results)
             self.dataSource.apply(snapshot)
         }
-        collectionView.delegate = self //데이터소스만 메서드로 만들었으므로 delegate는 따로 등록
-        searchBar.delegate = self
     }
 }
 
@@ -56,9 +58,9 @@ extension MVVMDiffableCollectionViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //새로운 스냅샷을 선언하면 기존값이 갱신되는게 아니라 새로운 값만 표시되므로 configureDatasource에서 데이터소스에 등록한 스냅샷에 접근해야 함.
         var snapshot = dataSource.snapshot()
-        snapshot.appendItems([searchBar.text]) //하나하나 추가할때마다 달라진 버젼으로 화면갱신
+        snapshot.appendItems([searchBar.text!]) //하나하나 추가할때마다 달라진 버젼으로 화면갱신
         self.dataSource.apply(snapshot, animatingDifferences: true)
-        
+
         searchBar.text!
     }
     
@@ -85,7 +87,7 @@ extension MVVMDiffableCollectionViewController {
             
             //String->Url->Data->Image
             DispatchQueue.global().async {
-                let url = URL(string: itemIdentifier.urls.thumb)
+                let url = URL(string: itemIdentifier.urls.thumb)!
                 let data = try? Data(contentsOf: url)
                 
                 DispatchQueue.main.async {
@@ -108,11 +110,11 @@ extension MVVMDiffableCollectionViewController {
             return cell
         })
           
-        //스냅샷 설정: 화면에 보여줄 데이터 설정 + 데이터를 데이터소스에 넣어 화면 갱신
-        var snapshot = NSDiffableDataSourceSnapshot<Int, SearchResult>() //string타입 데이터
-        snapshot.appendSections([0])
-        snapshot.appendItems(list)
-        dataSource.apply(snapshot) //apply: UI업데이트(화면갱신), 연산, 차이점, 애니메이션 등 설정 가능한 메서드
+//        //스냅샷 설정: 화면에 보여줄 데이터 설정 + 데이터를 데이터소스에 넣어 화면 갱신
+//        var snapshot = NSDiffableDataSourceSnapshot<Int, SearchResult>() //string타입 데이터
+//        snapshot.appendSections([0])
+//        snapshot.appendItems(list)
+//        dataSource.apply(snapshot) //apply: UI업데이트(화면갱신), 연산, 차이점, 애니메이션 등 설정 가능한 메서드
     }
 }
 
