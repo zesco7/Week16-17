@@ -8,8 +8,8 @@
 import Foundation
 
 struct RandomPhoto: Codable, Hashable {
-    let description: String?
-    let urls: randomPhotoUrls?
+    var description: String?
+    var urls: randomPhotoUrls?
 }
 
 // MARK: - randomPhotoUrls

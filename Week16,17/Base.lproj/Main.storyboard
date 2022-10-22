@@ -479,7 +479,7 @@
                                     <constraint firstAttribute="height" constant="44" id="rxo-27-9Zd"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="load"/>
+                                <buttonConfiguration key="configuration" style="plain" title="reload"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPL-qc-32F">
                                 <rect key="frame" x="20" y="74" width="177" height="44"/>
@@ -487,7 +487,7 @@
                                     <constraint firstAttribute="height" constant="44" id="aAp-k7-CxP"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="reset"/>
+                                <buttonConfiguration key="configuration" style="plain" title="delete"/>
                             </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="u2X-91-fG4">
                                 <rect key="frame" x="0.0" y="138" width="414" height="66"/>
@@ -537,8 +537,8 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="bal-aO-2Op" id="BXG-Hp-sxk"/>
-                        <outlet property="loadButton" destination="6Xj-On-Efr" id="eac-kl-UHn"/>
-                        <outlet property="resetButton" destination="HPL-qc-32F" id="VvY-TJ-t6B"/>
+                        <outlet property="deleteButton" destination="HPL-qc-32F" id="VvY-TJ-t6B"/>
+                        <outlet property="reloadButton" destination="6Xj-On-Efr" id="eac-kl-UHn"/>
                         <outlet property="searchBar" destination="u2X-91-fG4" id="Wcq-5Q-Hl1"/>
                     </connections>
                 </viewController>

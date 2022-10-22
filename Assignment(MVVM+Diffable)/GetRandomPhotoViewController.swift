@@ -8,10 +8,15 @@
 import UIKit
 import Alamofire
 
+/* 체크리스트
+ -.Codable사용할 때 옵셔널 타입 체크하기: Observable.value를 nil로 초기화 하려면 옵셔널 타입이어야 함.
+ -.snapshot.appendItems()에 클로저값 넣을 때 viewDidLoad보다 Codable이 먼저 실행(서치바검색어가 전달되지 않은 상황)됨. 결국 스냅샷에 nil을 넣는 상황이 되기 때문에 nil이 아닌 경우에 bind메서드 실행하도록 분기 처리 해줘야함.
+ */
+
 class GetRandomPhotoViewController: UIViewController {
     
-    @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var loadButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -26,22 +31,42 @@ class GetRandomPhotoViewController: UIViewController {
         collectionView.delegate = self
         searchBar.delegate = self
         
+        bindData()
         buttonEventExcuted()
+        hideKeyboard()
+        print(#function)
+    }
+    
+    func bindData() {
         viewModel.randomPhoto.bind { photo in
             var snapshot = NSDiffableDataSourceSnapshot<Int, randomPhotoUrls>()
             snapshot.appendSections([0])
-            snapshot.appendItems([photo.urls])
+            guard let data = photo.urls else { return }
+            snapshot.appendItems([data])
+            print(photo.urls)
+            self.dataSource.apply(snapshot)
+        }
+    }
+    
+    func buttonEventExcuted() {
+        deleteButton.addTarget(self, action: #selector(resetButtonClicked), for: .touchUpInside)
+        reloadButton.addTarget(self, action: #selector(loadButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func resetButtonClicked() {
+        viewModel.resetData()
+        viewModel.randomPhoto.bind { photo in
+            var snapshot = NSDiffableDataSourceSnapshot<Int, randomPhotoUrls>()
+            snapshot.appendSections([0])
             self.dataSource.apply(snapshot)
         }
         print(#function)
     }
     
-    @objc func resetButtonClicked() {
-        
-    }
-    
     @objc func loadButtonClicked() {
-        
+        viewModel.requestRandomPhoto(query: searchBar.text!)
+        bindData()
+        print(#function)
     }
 }
 
@@ -89,8 +114,12 @@ extension GetRandomPhotoViewController {
         })
     }
     
-    func buttonEventExcuted() {
-        resetButton.addTarget(self, action: #selector(resetButtonClicked), for: .touchUpInside)
-        loadButton.addTarget(self, action: #selector(loadButtonClicked), for: .touchUpInside)
+    func hideKeyboard() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

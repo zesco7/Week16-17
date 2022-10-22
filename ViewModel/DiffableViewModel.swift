@@ -25,5 +25,17 @@ class DiffableViewModel {
             self.randomPhoto.value = photo
         }
     }
+    
+    func resetData() {
+        randomPhoto.value.description = ""
+        randomPhoto.value.urls = nil
+        print(randomPhoto.value.urls)
+    }
+    
+    func loadData(data: randomPhotoUrls) {
+        randomPhoto.value.description = randomPhoto.value.description
+        randomPhoto.value.urls = data
+        print(randomPhoto.value.urls)
+    }
 
 }
