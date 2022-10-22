@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980721122903A26100C20D4B /* ListPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980721112903A26100C20D4B /* ListPhotos.swift */; };
+		980721142903AE1500C20D4B /* ListPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980721132903AE1500C20D4B /* ListPhotosViewController.swift */; };
+		980721162903BAC100C20D4B /* GetSinglePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980721152903BAC100C20D4B /* GetSinglePhotoViewController.swift */; };
+		980721182903BAD000C20D4B /* GetRandomPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980721172903BAD000C20D4B /* GetRandomPhotoViewController.swift */; };
+		9807211A2903BD2300C20D4B /* RandomPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980721192903BD2300C20D4B /* RandomPhoto.swift */; };
+		9807211C2903BD2F00C20D4B /* SinglePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9807211B2903BD2F00C20D4B /* SinglePhoto.swift */; };
 		9846D19628FEBD0D006195FD /* PracticeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9846D19528FEBD0D006195FD /* PracticeCollectionViewController.swift */; };
 		988563FC28FE2734008DDEF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988563FB28FE2734008DDEF6 /* AppDelegate.swift */; };
 		988563FE28FE2734008DDEF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988563FD28FE2734008DDEF6 /* SceneDelegate.swift */; };
@@ -29,6 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		980721112903A26100C20D4B /* ListPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPhotos.swift; sourceTree = "<group>"; };
+		980721132903AE1500C20D4B /* ListPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPhotosViewController.swift; sourceTree = "<group>"; };
+		980721152903BAC100C20D4B /* GetSinglePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSinglePhotoViewController.swift; sourceTree = "<group>"; };
+		980721172903BAD000C20D4B /* GetRandomPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomPhotoViewController.swift; sourceTree = "<group>"; };
+		980721192903BD2300C20D4B /* RandomPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhoto.swift; sourceTree = "<group>"; };
+		9807211B2903BD2F00C20D4B /* SinglePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePhoto.swift; sourceTree = "<group>"; };
 		9846D19528FEBD0D006195FD /* PracticeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCollectionViewController.swift; sourceTree = "<group>"; };
 		988563F828FE2734008DDEF6 /* Week16,17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Week16,17.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		988563FB28FE2734008DDEF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,9 +75,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9807211029039A0000C20D4B /* Assignment(MVVM+Diffable) */ = {
+			isa = PBXGroup;
+			children = (
+				980721132903AE1500C20D4B /* ListPhotosViewController.swift */,
+				980721152903BAC100C20D4B /* GetSinglePhotoViewController.swift */,
+				980721172903BAD000C20D4B /* GetRandomPhotoViewController.swift */,
+			);
+			path = "Assignment(MVVM+Diffable)";
+			sourceTree = "<group>";
+		};
+		9807211D2903BEF500C20D4B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				98FCD8BE2900F4AF00502E63 /* DiffableViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		988563EF28FE2733008DDEF6 = {
 			isa = PBXGroup;
 			children = (
+				9807211D2903BEF500C20D4B /* ViewModel */,
+				9807211029039A0000C20D4B /* Assignment(MVVM+Diffable) */,
 				988563F928FE2734008DDEF6 /* Products */,
 				988563FA28FE2734008DDEF6 /* Week16,17 */,
 			);
@@ -101,6 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				98FCD8B62900EF8800502E63 /* SearchPhoto.swift */,
+				980721112903A26100C20D4B /* ListPhotos.swift */,
+				9807211B2903BD2F00C20D4B /* SinglePhoto.swift */,
+				980721192903BD2300C20D4B /* RandomPhoto.swift */,
 			);
 			path = Codable;
 			sourceTree = "<group>";
@@ -140,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				98FCD8C229015AE900502E63 /* MVVMDiffableCollectionViewController.swift */,
-				98FCD8BE2900F4AF00502E63 /* DiffableViewModel.swift */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -222,19 +256,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				980721182903BAD000C20D4B /* GetRandomPhotoViewController.swift in Sources */,
 				98FCD8A92900CF8D00502E63 /* CObservable.swift in Sources */,
 				98C069A228FF90880092337E /* DiffableCollectionViewController.swift in Sources */,
+				9807211A2903BD2300C20D4B /* RandomPhoto.swift in Sources */,
 				98FCD8C329015AE900502E63 /* MVVMDiffableCollectionViewController.swift in Sources */,
 				98FCD8AB2900D14300502E63 /* NewsViewController.swift in Sources */,
+				980721122903A26100C20D4B /* ListPhotos.swift in Sources */,
 				98FCD8BF2900F4AF00502E63 /* DiffableViewModel.swift in Sources */,
 				98FCD8A62900C94D00502E63 /* APIKey.swift in Sources */,
 				9885641228FE3909008DDEF6 /* SimpleCollectionViewController.swift in Sources */,
 				98FCD8B12900D78200502E63 /* News.swift in Sources */,
 				98FCD8AF2900D27000502E63 /* NewsViewModel.swift in Sources */,
+				9807211C2903BD2F00C20D4B /* SinglePhoto.swift in Sources */,
 				98FCD8B52900EE0400502E63 /* APIService.swift in Sources */,
 				9885641028FE324A008DDEF6 /* SimpleTableViewController.swift in Sources */,
 				98FCD8B72900EF8800502E63 /* SearchPhoto.swift in Sources */,
 				9846D19628FEBD0D006195FD /* PracticeCollectionViewController.swift in Sources */,
+				980721162903BAC100C20D4B /* GetSinglePhotoViewController.swift in Sources */,
+				980721142903AE1500C20D4B /* ListPhotosViewController.swift in Sources */,
 				988563FC28FE2734008DDEF6 /* AppDelegate.swift in Sources */,
 				988563FE28FE2734008DDEF6 /* SceneDelegate.swift in Sources */,
 			);

@@ -1,0 +1,96 @@
+//
+//  GetRandomPhotoViewController.swift
+//  Week16,17
+//
+//  Created by Mac Pro 15 on 2022/10/22.
+//
+
+import UIKit
+import Alamofire
+
+class GetRandomPhotoViewController: UIViewController {
+    
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var loadButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var viewModel = DiffableViewModel()
+    private var dataSource : UICollectionViewDiffableDataSource<Int, randomPhotoUrls>!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        collectionView.collectionViewLayout = createLayout()
+        configureDataSource()
+        collectionView.delegate = self
+        searchBar.delegate = self
+        
+        buttonEventExcuted()
+        viewModel.randomPhoto.bind { photo in
+            var snapshot = NSDiffableDataSourceSnapshot<Int, randomPhotoUrls>()
+            snapshot.appendSections([0])
+            snapshot.appendItems([photo.urls])
+            self.dataSource.apply(snapshot)
+        }
+        print(#function)
+    }
+    
+    @objc func resetButtonClicked() {
+        
+    }
+    
+    @objc func loadButtonClicked() {
+        
+    }
+}
+
+extension GetRandomPhotoViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.requestRandomPhoto(query: searchBar.text!)
+        print(#function)
+    }
+}
+
+extension GetRandomPhotoViewController: UICollectionViewDelegate {
+    
+}
+
+extension GetRandomPhotoViewController {
+    func createLayout() -> UICollectionViewLayout{
+        let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        let layout = UICollectionViewCompositionalLayout.list(using: config)
+        return layout
+    }
+    
+    func configureDataSource() {
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, randomPhotoUrls>(handler: { cell, indexPath, itemIdentifier in
+            var content = UIListContentConfiguration.valueCell()
+            
+            DispatchQueue.global().async { //네트워크통신은 백그라운드스레드에서 작업: 네트워크통신처리하는 동안 다른 작업 가능
+                let url = URL(string: itemIdentifier.thumb) //String->Url
+                let data = try? Data(contentsOf: url!) //Url->Data
+
+                DispatchQueue.main.async { //UI업데이트는 메인스레드에서 작업
+                    content.image = UIImage(data: data!) //Data->Image: 킹피셔는 UIImageView타입만 처리하기 때문에 킹피셔 사용 하지 않고 이미지화
+                    cell.contentConfiguration = content //네크워크 비동기통신 하지 않도록 메인async에 선언해줘야 순서대로 실행됨
+                }
+            }
+    
+            var backgroundConfig = UIBackgroundConfiguration.listPlainCell() //배경관련 셀 속성 선택 가능
+            backgroundConfig.strokeWidth = 2
+            backgroundConfig.strokeColor = .systemPink
+            cell.backgroundConfiguration = backgroundConfig
+        })
+        
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+            return cell
+        })
+    }
+    
+    func buttonEventExcuted() {
+        resetButton.addTarget(self, action: #selector(resetButtonClicked), for: .touchUpInside)
+        loadButton.addTarget(self, action: #selector(loadButtonClicked), for: .touchUpInside)
+    }
+}

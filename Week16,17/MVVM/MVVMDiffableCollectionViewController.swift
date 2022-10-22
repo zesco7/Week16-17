@@ -8,7 +8,6 @@
 import UIKit
 
 import Alamofire
-import Kingfisher
 
 /* MVVM+Diffable흐름: 네트워크 통신으로 받은 데이터 초기화를 뷰모델에서 처리하고, 그 데이터를 뷰컨트롤러가 받아서 작업을 실행한다.
  1. 레이아웃 설정: UICollectionViewLayout타입 레이아웃을 반환하는 메서드 생성
@@ -62,6 +61,7 @@ extension MVVMDiffableCollectionViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //MARK: - 4. 네트워크 통신요청: 서치바텍스트 내용을 네트워크 통신요청->클로저로 받은 네트워트통신 내용을 photoList에 초기화->CObservable에서 값변경 인식하면서 snapshot에 데이터 추가하는 bind실행
         viewModel.requestSearchPhoto(query: searchBar.text!)
+        print(viewModel.requestSearchPhoto(query: searchBar.text!))
     }
 }
 
