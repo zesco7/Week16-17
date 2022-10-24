@@ -37,5 +37,4 @@ class DiffableViewModel {
         randomPhoto.value.urls = data
         print(randomPhoto.value.urls)
     }
-
 }
