@@ -41,10 +41,10 @@ class SubjectViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        addButton.rx.tap //addButton버튼 눌렀을 때
+        addButton.rx.tap //addButton버튼 눌렀을 때(observable역할로서 이벤트를 넘김)
             .withUnretained(self)
             .subscribe { (vc, _) in //클로저로 vc데이터를 받고
-                vc.viewModel.fetchData() //vc데이터를 통해 fetchData실행(fetchData는 list.onNext(contactData) 가진 메서드로서 contactData를 방출하는 observable)
+                vc.viewModel.fetchData() //observer인 list가 onNext로 contactData를 받을 수 있음(PublishSubject타입이기 때문에)
             }
             .disposed(by: disposeBag)
         
