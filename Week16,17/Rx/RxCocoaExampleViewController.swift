@@ -9,6 +9,8 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+
+//화면전환 할 때마다 RxCocoaExampleViewController가 메모리에 올라감
 class RxCocoaExampleViewController: UIViewController {
 
     @IBOutlet weak var simpleTableView: UITableView!
@@ -20,10 +22,23 @@ class RxCocoaExampleViewController: UIViewController {
     @IBOutlet weak var signEmail: UITextField!
     @IBOutlet weak var signButton: UIButton!
     
-    let disposeBag = DisposeBag()
+    @IBOutlet weak var nicknameLabel: UILabel!
+    
+    
+    var disposeBag = DisposeBag()
+    var nickname = Observable.just("Jack")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nickname
+            .bind(to: nicknameLabel.rx.text)
+            //.disposed(by: DisposeBag)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            //Observable은 이벤트 전달만 하기 때문에 값을 저장할 수 없음. 그래서 이벤트(next,complete,error) 처리와 구독(subscribe)역할을 같이 할 수 있는 subject 등장
+            //self.nickname = "Hello"
+        }
 
         setTableView()
         setPickerView()
@@ -32,13 +47,57 @@ class RxCocoaExampleViewController: UIViewController {
         setOperator()
         
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function)
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        print(#function)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(#function)
+    }
+    
+    //ViewController가 deinit되면 dispose도 알아서 동작한다.
+    //DisposeBag 새롭게 할당하거나 nil전달: 원하는 시점에 할당하면 기존 리소스는 자동해제 됨(한번에 리소스 정리) *예외케이스: rootvc에 interval이 있는 경우
+    deinit {
+        print("RxCocoaExampleViewController")
+    }
+    
+    //무한시퀀스 이벤트라서 다른 이벤트와 달리 dispose가 되지 않음.
     func setOperator() {
+        let intervalObservable = Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
+            .subscribe { value in
+                print("interval - \(value)")
+            } onError: { error in
+                print("interval - \(error)")
+            } onCompleted: {
+                print("interval completed")
+            } onDisposed: {
+                print("interval disposed")
+            }
+            .disposed(by: disposeBag)
+        
+        //DisposeBag: 리소스 해제 케이스
+        //일반적으로는 ViewController가 deinit되면 dispose도 알아서 동작하기 때문에 개별해제할 필요 없으나 예외케이스가 있으면 개별해제함 ex.3,4번)
+          //1. 시퀀스 끝날 때(subsribe의 completed)
+          //2. 클래스가 deinit될 때(bind 자동해제 됨)
+          //3. dispose 직접 호출 -> dispose()는 구독하는 것 마다 별도로 관리해야하기 때문에 이벤트객체가 많아지면 번거로울 수 있음
+          //4. DisposeBag 새롭게 할당하거나 nil전달: 원하는 시점에 할당하면 기존 리소스는 자동해제 됨(한번에 리소스 정리) *예외케이스: rootvc에 interval이 있는 경우
+
+        //(ViewController deinit처리
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+            //intervalObservable.dispose() //3. intervalObservable이 10개 있으면 10개 각각 dispose해줘야 리소스 해제됨
+            self.disposeBag = DisposeBag() //4. intervalObservable에서 .disposed(by: disposeBag)에 새로운 DisposeBag 할당
+        }
+        
         let itemsA = [3.3, 4.0, 5.0, 2.0, 3.6, 4.8]
         let itemsB = [2.3, 2.0, 1.3]
         
-        Observable.repeatElement("JACK") //반복실행 메서드
-            .take(5) //실행횟수 설정
+        Observable.repeatElement("JACK") //반복실행 메서드(Infinite Observable Sequence)
+            .take(5) //실행횟수 설정(Finite Observable Sequence)
             .subscribe { value in
                 print("repeat - \(value)")
             } onError: { error in
@@ -109,9 +168,13 @@ class RxCocoaExampleViewController: UIViewController {
             .disposed(by: disposeBag)
         
         signButton.rx.tap
-            .subscribe { _ in
-                self.showAlert()
-            }
+//            .subscribe { [weak self] _ in //deinit 시키려면 ARC카운트되지 않게 [weak self]처리 꼭 해줘야함
+//                self?.showAlert()
+//            }
+            .withUnretained(self) //rx6.0부터 .withUnretained(self)사용하면 [weak self] 대신 deinit가능
+            .subscribe(onNext: { vc, _ in //withUnretained 대상이 되는 뷰컨트롤러 추가
+                vc.showAlert()
+            })
             .disposed(by: disposeBag)
     }
     

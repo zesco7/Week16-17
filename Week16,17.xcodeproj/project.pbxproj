@@ -24,6 +24,8 @@
 		9886A759290622A900F22641 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9886A758290622A900F22641 /* RxCocoa */; };
 		9886A75B290622A900F22641 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9886A75A290622A900F22641 /* RxSwift */; };
 		9886A75E290625CF00F22641 /* RxCocoaExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9886A75D290625CF00F22641 /* RxCocoaExampleViewController.swift */; };
+		989D4F0329077A4A007B608F /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989D4F0229077A4A007B608F /* SubjectViewController.swift */; };
+		989D4F05290788AD007B608F /* SubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989D4F04290788AD007B608F /* SubjectViewModel.swift */; };
 		98C069A228FF90880092337E /* DiffableCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C069A128FF90880092337E /* DiffableCollectionViewController.swift */; };
 		98FCD8A62900C94D00502E63 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCD8A52900C94D00502E63 /* APIKey.swift */; };
 		98FCD8A92900CF8D00502E63 /* CObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCD8A82900CF8D00502E63 /* CObservable.swift */; };
@@ -55,6 +57,8 @@
 		9885640F28FE324A008DDEF6 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 		9885641128FE3909008DDEF6 /* SimpleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionViewController.swift; sourceTree = "<group>"; };
 		9886A75D290625CF00F22641 /* RxCocoaExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCocoaExampleViewController.swift; sourceTree = "<group>"; };
+		989D4F0229077A4A007B608F /* SubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
+		989D4F04290788AD007B608F /* SubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewModel.swift; sourceTree = "<group>"; };
 		98C069A128FF90880092337E /* DiffableCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableCollectionViewController.swift; sourceTree = "<group>"; };
 		98FCD8A52900C94D00502E63 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		98FCD8A82900CF8D00502E63 /* CObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CObservable.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				9886A75D290625CF00F22641 /* RxCocoaExampleViewController.swift */,
+				989D4F0229077A4A007B608F /* SubjectViewController.swift */,
+				989D4F04290788AD007B608F /* SubjectViewModel.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -279,9 +285,11 @@
 				98C069A228FF90880092337E /* DiffableCollectionViewController.swift in Sources */,
 				9886A75E290625CF00F22641 /* RxCocoaExampleViewController.swift in Sources */,
 				9807211A2903BD2300C20D4B /* RandomPhoto.swift in Sources */,
+				989D4F05290788AD007B608F /* SubjectViewModel.swift in Sources */,
 				98FCD8C329015AE900502E63 /* MVVMDiffableCollectionViewController.swift in Sources */,
 				98FCD8AB2900D14300502E63 /* NewsViewController.swift in Sources */,
 				980721122903A26100C20D4B /* ListPhotos.swift in Sources */,
+				989D4F0329077A4A007B608F /* SubjectViewController.swift in Sources */,
 				98FCD8BF2900F4AF00502E63 /* DiffableViewModel.swift in Sources */,
 				98FCD8A62900C94D00502E63 /* APIKey.swift in Sources */,
 				9885641228FE3909008DDEF6 /* SimpleCollectionViewController.swift in Sources */,
