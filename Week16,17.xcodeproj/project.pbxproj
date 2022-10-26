@@ -13,6 +13,11 @@
 		980721182903BAD000C20D4B /* GetRandomPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980721172903BAD000C20D4B /* GetRandomPhotoViewController.swift */; };
 		9807211A2903BD2300C20D4B /* RandomPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980721192903BD2300C20D4B /* RandomPhoto.swift */; };
 		9807211C2903BD2F00C20D4B /* SinglePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9807211B2903BD2F00C20D4B /* SinglePhoto.swift */; };
+		9831A4172908B63F00DA2618 /* RxNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9831A4162908B63F00DA2618 /* RxNewsViewModel.swift */; };
+		9831A4192908B7D500DA2618 /* RxNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9831A4182908B7D500DA2618 /* RxNewsViewController.swift */; };
+		9831A41B2908BABF00DA2618 /* RxMVVMDiffableCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9831A41A2908BABF00DA2618 /* RxMVVMDiffableCollectionViewController.swift */; };
+		9831A41D2908BB5800DA2618 /* RxDiffableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9831A41C2908BB5800DA2618 /* RxDiffableViewModel.swift */; };
+		9831A41F2908CC0500DA2618 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9831A41E2908CC0500DA2618 /* SubscribeViewController.swift */; };
 		9846D19628FEBD0D006195FD /* PracticeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9846D19528FEBD0D006195FD /* PracticeCollectionViewController.swift */; };
 		988563FC28FE2734008DDEF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988563FB28FE2734008DDEF6 /* AppDelegate.swift */; };
 		988563FE28FE2734008DDEF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988563FD28FE2734008DDEF6 /* SceneDelegate.swift */; };
@@ -46,6 +51,11 @@
 		980721172903BAD000C20D4B /* GetRandomPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomPhotoViewController.swift; sourceTree = "<group>"; };
 		980721192903BD2300C20D4B /* RandomPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhoto.swift; sourceTree = "<group>"; };
 		9807211B2903BD2F00C20D4B /* SinglePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePhoto.swift; sourceTree = "<group>"; };
+		9831A4162908B63F00DA2618 /* RxNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNewsViewModel.swift; sourceTree = "<group>"; };
+		9831A4182908B7D500DA2618 /* RxNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNewsViewController.swift; sourceTree = "<group>"; };
+		9831A41A2908BABF00DA2618 /* RxMVVMDiffableCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMVVMDiffableCollectionViewController.swift; sourceTree = "<group>"; };
+		9831A41C2908BB5800DA2618 /* RxDiffableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxDiffableViewModel.swift; sourceTree = "<group>"; };
+		9831A41E2908CC0500DA2618 /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
 		9846D19528FEBD0D006195FD /* PracticeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeCollectionViewController.swift; sourceTree = "<group>"; };
 		988563F828FE2734008DDEF6 /* Week16,17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Week16,17.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		988563FB28FE2734008DDEF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				98FCD8BE2900F4AF00502E63 /* DiffableViewModel.swift */,
+				9831A41C2908BB5800DA2618 /* RxDiffableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -146,6 +157,10 @@
 				9886A75D290625CF00F22641 /* RxCocoaExampleViewController.swift */,
 				989D4F0229077A4A007B608F /* SubjectViewController.swift */,
 				989D4F04290788AD007B608F /* SubjectViewModel.swift */,
+				9831A4162908B63F00DA2618 /* RxNewsViewModel.swift */,
+				9831A4182908B7D500DA2618 /* RxNewsViewController.swift */,
+				9831A41A2908BABF00DA2618 /* RxMVVMDiffableCollectionViewController.swift */,
+				9831A41E2908CC0500DA2618 /* SubscribeViewController.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -283,20 +298,25 @@
 				980721182903BAD000C20D4B /* GetRandomPhotoViewController.swift in Sources */,
 				98FCD8A92900CF8D00502E63 /* CObservable.swift in Sources */,
 				98C069A228FF90880092337E /* DiffableCollectionViewController.swift in Sources */,
+				9831A41D2908BB5800DA2618 /* RxDiffableViewModel.swift in Sources */,
 				9886A75E290625CF00F22641 /* RxCocoaExampleViewController.swift in Sources */,
+				9831A4172908B63F00DA2618 /* RxNewsViewModel.swift in Sources */,
 				9807211A2903BD2300C20D4B /* RandomPhoto.swift in Sources */,
 				989D4F05290788AD007B608F /* SubjectViewModel.swift in Sources */,
 				98FCD8C329015AE900502E63 /* MVVMDiffableCollectionViewController.swift in Sources */,
 				98FCD8AB2900D14300502E63 /* NewsViewController.swift in Sources */,
+				9831A4192908B7D500DA2618 /* RxNewsViewController.swift in Sources */,
 				980721122903A26100C20D4B /* ListPhotos.swift in Sources */,
 				989D4F0329077A4A007B608F /* SubjectViewController.swift in Sources */,
 				98FCD8BF2900F4AF00502E63 /* DiffableViewModel.swift in Sources */,
 				98FCD8A62900C94D00502E63 /* APIKey.swift in Sources */,
+				9831A41F2908CC0500DA2618 /* SubscribeViewController.swift in Sources */,
 				9885641228FE3909008DDEF6 /* SimpleCollectionViewController.swift in Sources */,
 				98FCD8B12900D78200502E63 /* News.swift in Sources */,
 				98FCD8AF2900D27000502E63 /* NewsViewModel.swift in Sources */,
 				9807211C2903BD2F00C20D4B /* SinglePhoto.swift in Sources */,
 				98FCD8B52900EE0400502E63 /* APIService.swift in Sources */,
+				9831A41B2908BABF00DA2618 /* RxMVVMDiffableCollectionViewController.swift in Sources */,
 				9885641028FE324A008DDEF6 /* SimpleTableViewController.swift in Sources */,
 				98FCD8B72900EF8800502E63 /* SearchPhoto.swift in Sources */,
 				9846D19628FEBD0D006195FD /* PracticeCollectionViewController.swift in Sources */,

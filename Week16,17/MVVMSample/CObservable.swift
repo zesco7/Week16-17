@@ -8,6 +8,9 @@
 //MVVM원칙: ViewModel에는 UIKit import하지 말자
 import Foundation
 
+import RxCocoa
+import RxSwift
+
 class CObservable<T> {
 //    private var listener: ((T) -> Void)? = { value in
 //        self.numberTextField.text = value
