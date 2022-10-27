@@ -32,6 +32,8 @@
 		989D4F0329077A4A007B608F /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989D4F0229077A4A007B608F /* SubjectViewController.swift */; };
 		989D4F05290788AD007B608F /* SubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989D4F04290788AD007B608F /* SubjectViewModel.swift */; };
 		98C069A228FF90880092337E /* DiffableCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C069A128FF90880092337E /* DiffableCollectionViewController.swift */; };
+		98DCFB15290A07F60022252C /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DCFB14290A07F60022252C /* ValidationViewController.swift */; };
+		98DCFB17290A22DB0022252C /* ValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DCFB16290A22DB0022252C /* ValidationViewModel.swift */; };
 		98FCD8A62900C94D00502E63 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCD8A52900C94D00502E63 /* APIKey.swift */; };
 		98FCD8A92900CF8D00502E63 /* CObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCD8A82900CF8D00502E63 /* CObservable.swift */; };
 		98FCD8AB2900D14300502E63 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCD8AA2900D14300502E63 /* NewsViewController.swift */; };
@@ -70,6 +72,8 @@
 		989D4F0229077A4A007B608F /* SubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
 		989D4F04290788AD007B608F /* SubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewModel.swift; sourceTree = "<group>"; };
 		98C069A128FF90880092337E /* DiffableCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableCollectionViewController.swift; sourceTree = "<group>"; };
+		98DCFB14290A07F60022252C /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
+		98DCFB16290A22DB0022252C /* ValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewModel.swift; sourceTree = "<group>"; };
 		98FCD8A52900C94D00502E63 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		98FCD8A82900CF8D00502E63 /* CObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CObservable.swift; sourceTree = "<group>"; };
 		98FCD8AA2900D14300502E63 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -154,13 +158,12 @@
 		9886A75C290625A800F22641 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
+				98DCFB1B290A36AA0022252C /* Subscribe */,
+				98DCFB1A290A36910022252C /* Subject */,
+				98DCFB19290A367D0022252C /* News */,
+				98DCFB18290A36690022252C /* Validation */,
 				9886A75D290625CF00F22641 /* RxCocoaExampleViewController.swift */,
-				989D4F0229077A4A007B608F /* SubjectViewController.swift */,
-				989D4F04290788AD007B608F /* SubjectViewModel.swift */,
-				9831A4162908B63F00DA2618 /* RxNewsViewModel.swift */,
-				9831A4182908B7D500DA2618 /* RxNewsViewController.swift */,
 				9831A41A2908BABF00DA2618 /* RxMVVMDiffableCollectionViewController.swift */,
-				9831A41E2908CC0500DA2618 /* SubscribeViewController.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -194,6 +197,41 @@
 				98C069A128FF90880092337E /* DiffableCollectionViewController.swift */,
 			);
 			path = CollectionListConfiguration;
+			sourceTree = "<group>";
+		};
+		98DCFB18290A36690022252C /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				98DCFB14290A07F60022252C /* ValidationViewController.swift */,
+				98DCFB16290A22DB0022252C /* ValidationViewModel.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		98DCFB19290A367D0022252C /* News */ = {
+			isa = PBXGroup;
+			children = (
+				9831A4162908B63F00DA2618 /* RxNewsViewModel.swift */,
+				9831A4182908B7D500DA2618 /* RxNewsViewController.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		98DCFB1A290A36910022252C /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				989D4F0229077A4A007B608F /* SubjectViewController.swift */,
+				989D4F04290788AD007B608F /* SubjectViewModel.swift */,
+			);
+			path = Subject;
+			sourceTree = "<group>";
+		};
+		98DCFB1B290A36AA0022252C /* Subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				9831A41E2908CC0500DA2618 /* SubscribeViewController.swift */,
+			);
+			path = Subscribe;
 			sourceTree = "<group>";
 		};
 		98FCD8A72900CD8D00502E63 /* MVVMSample */ = {
@@ -314,12 +352,14 @@
 				9885641228FE3909008DDEF6 /* SimpleCollectionViewController.swift in Sources */,
 				98FCD8B12900D78200502E63 /* News.swift in Sources */,
 				98FCD8AF2900D27000502E63 /* NewsViewModel.swift in Sources */,
+				98DCFB15290A07F60022252C /* ValidationViewController.swift in Sources */,
 				9807211C2903BD2F00C20D4B /* SinglePhoto.swift in Sources */,
 				98FCD8B52900EE0400502E63 /* APIService.swift in Sources */,
 				9831A41B2908BABF00DA2618 /* RxMVVMDiffableCollectionViewController.swift in Sources */,
 				9885641028FE324A008DDEF6 /* SimpleTableViewController.swift in Sources */,
 				98FCD8B72900EF8800502E63 /* SearchPhoto.swift in Sources */,
 				9846D19628FEBD0D006195FD /* PracticeCollectionViewController.swift in Sources */,
+				98DCFB17290A22DB0022252C /* ValidationViewModel.swift in Sources */,
 				980721162903BAC100C20D4B /* GetSinglePhotoViewController.swift in Sources */,
 				980721142903AE1500C20D4B /* ListPhotosViewController.swift in Sources */,
 				988563FC28FE2734008DDEF6 /* AppDelegate.swift in Sources */,
