@@ -18,7 +18,7 @@ class SubjectViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var newButton: UIBarButtonItem!
     
-    let publish = PublishSubject<Int>() //PublishSubject는 초기값 없음.(구독 이후 시점부터 emit되는 이벤트 처리)
+    let publish = PublishSubject<Int>() //PublishSubject는 초기값 없음.(구독 이후 시점부터 emit되는 이벤트 처리) 
     let behavior = BehaviorSubject(value: 100) //BehaviorSubject는 초기값 필수(구독 전 가장 최근 emit한 이벤트 1개 처리)
     let replay = ReplaySubject<Int>.create(bufferSize: 3) //ReplaySubject는 초기값 필수(bufferSize 갯수에 따라 구독 전 가장 최근 emit한 이벤트 처리), 작성된 이벤트 갯수만큼 메모리에서 가지고 있다가 구독 직후 한번에 이벤트 전달
     let async = AsyncSubject<Int>()
