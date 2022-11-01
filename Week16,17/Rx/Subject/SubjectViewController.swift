@@ -36,44 +36,53 @@ class SubjectViewController: UIViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ContactCell")
         
-        viewModel.list //list 변경될때 마다 bind실행(무한시퀀스로서 종료없이 list변경될때마다 계속 실행)
-            .bind(to: tableView.rx.items(cellIdentifier: "ContactCell", cellType: UITableViewCell.self)) { (row, element, cell) in                                      cell.textLabel?.text = "\(element.name): \(element.age)세 (\(element.number))"
+        let input = SubjectViewModel.Input(addTap: addButton.rx.tap, resetTap: resetButton.rx.tap, newTap: newButton.rx.tap, searchText: searchBar.rx.text)
+        let output = viewModel.transform(input: input)
+        
+        //output(VM->VC) *bind 대신 drive사용
+        viewModel.list
+            .asDriver(onErrorJustReturn: [])
+            .drive(tableView.rx.items(cellIdentifier: "ContactCell", cellType: UITableViewCell.self)) { (row, element, cell) in                                      cell.textLabel?.text = "\(element.name): \(element.age)세 (\(element.number))"
             }
             .disposed(by: disposeBag)
         
-        addButton.rx.tap //addButton버튼 눌렀을 때(observable역할로서 이벤트를 넘김)
+        //output(VM->VC)
+//        viewModel.list //list 변경될때 마다 bind실행(무한시퀀스로서 종료없이 list변경될때마다 계속 실행)
+//            .bind(to: tableView.rx.items(cellIdentifier: "ContactCell", cellType: UITableViewCell.self)) { (row, element, cell) in                                      cell.textLabel?.text = "\(element.name): \(element.age)세 (\(element.number))"
+//            }
+//            .disposed(by: disposeBag)
+        
+        //input(VC->VM)
+        output.addTap //addButton버튼 눌렀을 때(observable역할로서 이벤트를 넘김)
             .withUnretained(self)
             .subscribe { (vc, _) in //클로저로 vc데이터를 받고
                 vc.viewModel.fetchData() //observer인 list가 onNext로 contactData를 받을 수 있음(PublishSubject타입이기 때문에)
             }
             .disposed(by: disposeBag)
         
-        resetButton.rx.tap
+        //input(VC->VM)
+        output.resetTap
             .withUnretained(self)
             .subscribe { (vc, _) in
                 vc.viewModel.resetData()
             }
             .disposed(by: disposeBag)
         
-        newButton.rx.tap
+        output.newTap
             .withUnretained(self)
             .subscribe { (vc, _) in
                 vc.viewModel.newData()
             }
             .disposed(by: disposeBag)
         
-        searchBar.rx.text.orEmpty //orEmpty로 옵셔널에러 처리
+        output.searchText //orEmpty로 옵셔널에러 처리
             .withUnretained(self)
-        //debounce: 검색어 입력 후 일정시간 후 진행(네트워크 통신 때 서버 요청 콜수 줄일 수 있음)
-            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
-        //.distinctUntilChanged //같은 값을 받지 않음(네트워크 통신 때 검색기록 있는 경우면 네트워크 통신하지 않고 검색기록 저장된 곳에서 데이터 불러옴)
             .subscribe { (vc, value) in
                 print("======\(value)")
                 vc.viewModel.filterData(query: value)
             }
             .disposed(by: disposeBag)
     }
-    
     
     func replaySubject() { //ReplaySubject는 초기값 필수(bufferSize 갯수에 따라 구독 전 가장 최근 emit한 이벤트 처리)
         replay.onNext(100)

@@ -27,27 +27,46 @@ class ValidationViewController: UIViewController {
     }
     
     func bind() {
-        viewModel.validText
-            .asDriver() //relay짝궁은 DRIVER
+        
+        //MARK: - after: input, output을 구분했기 때문에 데이터 흐름을 쉽게 확인 할 수 있음
+        let input = ValidationViewModel.Input(text: nameTextField.rx.text, tap: stepButton.rx.tap) //텍스트필드 입력내용을 뷰모델로 보냄
+        let output = viewModel.transform(input: input) //
+        
+        output.text
             .drive(validationLabel.rx.text)
             .disposed(by: disposeBag)
         
-        let validation = nameTextField.rx.text //String?타입
-            .orEmpty //String타입
-            .map { $0.count >= 8 } //Bool타입
-            .share() //subject 내부에 share가 있기 때문에 subject에서는 share 따로 안써도 됨
-        
-        validation
+        output.validation
             .bind(to: stepButton.rx.isEnabled, validationLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
-        validation
+        output.validation
             .withUnretained(self)
             .bind { (vc, value) in
                 let color: UIColor = value ? .systemPink : .lightGray
                 self.stepButton.backgroundColor = color
             }
             .disposed(by: disposeBag)
+        
+        output.tap
+            .bind { _ in
+                print("SHOW ALERT")
+            }
+            .disposed(by: disposeBag)
+        
+        //MARK: - before
+        //input(명확하게 output으로 구분할 수 없는 것은 input으로 생각해도 무방)
+        let validation = nameTextField.rx.text //String?타입
+            .orEmpty //String타입
+            .map { $0.count >= 8 } //Bool타입
+            .share() //subject 내부에 share가 있기 때문에 subject에서는 share 따로 안써도 됨
+        
+        //output(뷰모델에서 꺼내오기 때문)
+        viewModel.validText
+            .asDriver() //relay짝궁은 DRIVER
+            .drive(validationLabel.rx.text)
+            .disposed(by: disposeBag)
+        //
         
         //stream, sequence 두 개 비슷한 개념으로 이해하면 됨
         stepButton.rx.tap
@@ -62,12 +81,6 @@ class ValidationViewController: UIViewController {
             }
             .disposed(by: disposeBag)
             //.disposed(by: DisposeBag()) //새롭게 인스턴스를 할당하면 리소스 해제되어서 탭 작동이 안됨(수동으로 리소스 정리하는 것과 같음 / .dispose()와 같음)
-        
-        stepButton.rx.tap
-            .bind { _ in
-                print("SHOW ALERT")
-            }
-            .disposed(by: disposeBag)
     }
     
     func observableVSSubject() {
